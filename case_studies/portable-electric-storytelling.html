@@ -4,14 +4,17 @@
 
 <style>
   :root{
-    --bg:#f4f9fd;
-    --ink:#0f2033;
-    --ink-soft:#43586b;
-    --ink-faint:#8296a8;
-    --line:#d8e6f0;
+    --bg:#ffffff;
+    --ink:#12181f;
+    --ink-soft:#4b5763;
+    --ink-faint:#8a94a3;
+    --line:#e4e7ec;
     --blue:#1f6fb2;
     --blue-deep:#123a5e;
-    --blue-bright:#5aa8e0;
+    --blue-bright:#7fb8e8;
+    --navy-raised:#15304a;
+    --navy-deep:#081019;
+    --navy-ink-soft:#9fb4c9;
     --forest-ink:#f2f7ee;
     --forest-ink-soft:#9fb8a9;
   }
@@ -69,18 +72,18 @@
     position:relative;
     overflow:hidden;
     background:
-      radial-gradient(120% 140% at 88% -10%, rgba(90,168,224,0.28), transparent 55%),
-      linear-gradient(180deg, #eaf3fb 0%, var(--bg) 100%);
-    color:var(--ink);
+      radial-gradient(120% 140% at 85% 0%, rgba(127,184,232,0.22), transparent 58%),
+      linear-gradient(200deg, var(--navy-raised) 0%, var(--navy-deep) 60%, #050a12 100%);
+    color:var(--forest-ink);
     padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem) clamp(2.5rem,6vw,4rem);
   }
   .cs-hero-inner{position:relative; z-index:1; max-width:44rem; margin:0 auto;}
-  .cs-hero .eyebrow{color:var(--blue); letter-spacing:0.2em;}
+  .cs-hero .eyebrow{color:var(--navy-ink-soft); letter-spacing:0.2em;}
   .cs-hero h1{
     margin:0.75rem 0 0;
     font-size:clamp(2rem,4.5vw,3rem);
     line-height:1.1;
-    background:linear-gradient(100deg, var(--blue-deep) 0%, var(--blue-bright) 100%);
+    background:linear-gradient(100deg, var(--forest-ink) 0%, var(--blue-bright) 100%);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -89,7 +92,7 @@
     margin:1.25rem 0 0;
     font-size:1.1rem;
     line-height:1.6;
-    color:var(--ink-soft);
+    color:var(--navy-ink-soft);
     max-width:38ch;
   }
   .cs-meta{
@@ -98,7 +101,7 @@
     gap:2.25rem;
     margin-top:2.25rem;
     padding-top:1.75rem;
-    border-top:1px solid var(--line);
+    border-top:1px solid rgba(242,247,238,0.16);
   }
   .cs-meta .meta-item{display:flex; flex-direction:column; gap:0.3rem;}
   .cs-meta .meta-label{
@@ -106,9 +109,9 @@
     font-size:0.7rem;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--blue);
+    color:var(--navy-ink-soft);
   }
-  .cs-meta .meta-value{font-size:0.95rem; color:var(--ink);}
+  .cs-meta .meta-value{font-size:0.95rem; color:var(--forest-ink);}
 
   .cs-body{
     max-width:44rem;
