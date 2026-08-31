@@ -1,0 +1,226 @@
+<title>Voltstack — Messaging & Positioning | Cecillia Lescano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root{
+    --bg:#eef6ea;
+    --ink:#0e2419;
+    --ink-soft:#3d5648;
+    --ink-faint:#7f9587;
+    --line:#cddec4;
+    --accent:#2c8a54;
+    --accent-soft:#d4ecd1;
+    --forest:#0e2419;
+    --forest-raised:#173829;
+    --forest-ink:#f2f7ee;
+    --forest-ink-soft:#9fb8a9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Manrope", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Sora", ui-sans-serif, system-ui, sans-serif;
+    font-weight:400;
+    text-wrap:balance;
+    margin:0;
+  }
+  a{color:inherit;}
+  p{margin:0;}
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.86rem;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1.5rem;
+    padding:1.05rem clamp(1.25rem,4vw,3rem);
+    background:#000;
+  }
+  .topnav a{
+    text-decoration:none;
+    color:var(--forest-ink-soft);
+    font-size:0.82rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    transition:color .15s;
+  }
+  .topnav a:hover{color:var(--forest-ink);}
+  .topnav .brand{
+    font-family:"Sora", sans-serif;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--forest-ink);
+    text-transform:none;
+    letter-spacing:0;
+  }
+
+  .cs-hero{
+    background:var(--forest);
+    color:var(--forest-ink);
+    padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem) clamp(2.5rem,6vw,4rem);
+  }
+  .cs-hero-inner{max-width:44rem; margin:0 auto;}
+  .cs-hero .eyebrow{color:var(--forest-ink-soft); letter-spacing:0.2em;}
+  .cs-hero h1{
+    margin:0.75rem 0 0;
+    font-size:clamp(2rem,4.5vw,3rem);
+    line-height:1.1;
+  }
+  .cs-hero .dek{
+    margin:1.25rem 0 0;
+    font-size:1.1rem;
+    line-height:1.6;
+    color:var(--forest-ink-soft);
+    max-width:38ch;
+  }
+  .cs-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2.25rem;
+    margin-top:2.25rem;
+    padding-top:1.75rem;
+    border-top:1px solid rgba(242,247,238,0.16);
+  }
+  .cs-meta .meta-item{display:flex; flex-direction:column; gap:0.3rem;}
+  .cs-meta .meta-label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--forest-ink-soft);
+  }
+  .cs-meta .meta-value{font-size:0.95rem; color:var(--forest-ink);}
+
+  .cs-body{
+    max-width:44rem;
+    margin:0 auto;
+    padding:clamp(3rem,7vw,5rem) clamp(1.25rem,4vw,3rem);
+  }
+  .cs-section + .cs-section{margin-top:clamp(2.5rem,5vw,3.5rem);}
+  .cs-section h2{
+    font-size:clamp(1.3rem,2.4vw,1.6rem);
+    color:var(--ink);
+  }
+  .cs-section .cs-num{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:block;
+    margin-bottom:0.6rem;
+  }
+  .cs-section p{
+    margin-top:1rem;
+    font-size:1.02rem;
+    line-height:1.75;
+    color:var(--ink-soft);
+  }
+  .cs-section ul{
+    margin:1.1rem 0 0;
+    padding-left:1.2rem;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    line-height:1.7;
+  }
+  .cs-section li + li{margin-top:0.5rem;}
+  .cs-section li::marker{color:var(--accent);}
+
+  .cs-cta-row{
+    margin-top:clamp(3rem,6vw,4rem);
+    padding-top:2rem;
+    border-top:1px solid var(--line);
+  }
+  .cs-back{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
+    text-decoration:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.92rem;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink-faint);
+    padding-bottom:0.15rem;
+    transition:color .15s, border-color .15s;
+  }
+  .cs-back:hover{color:var(--accent); border-color:var(--accent);}
+
+  .foot{
+    background:#000;
+    color:var(--forest-ink-soft);
+    padding:1.75rem clamp(1.25rem,4vw,3rem);
+    font-size:0.8rem;
+    text-align:center;
+  }
+</style>
+
+<nav class="topnav">
+  <a class="brand" href="../index.html">Cecillia Lescano — Deft Strategies</a>
+  <a href="../index.html#gtm">← Portfolio</a>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="eyebrow">Go-to-Market — Case Study</div>
+    <h1>Voltstack: industrial-grade portable power</h1>
+    <p class="dek">Positioning that separates a jobsite power platform from consumer power-station competitors.</p>
+    <div class="cs-meta">
+      <div class="meta-item">
+        <span class="meta-label">Category</span>
+        <span class="meta-value">Messaging & Positioning</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Role</span>
+        <span class="meta-value">Lead PMM</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Focus</span>
+        <span class="meta-value">Category definition, competitive positioning, buyer language</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="cs-body">
+  <section class="cs-section">
+    <span class="cs-num">01 — The Situation</span>
+    <h2>Getting mistaken for a consumer product</h2>
+    <p>Voltstack was competing for attention in a category crowded with consumer-grade "portable power station" products — camping and backup-power gear. But its actual buyer was a site foreman or fleet manager evaluating equipment for daily jobsite use, not a weekend camper.</p>
+    <p>Every piece of messaging that read as consumer-facing made the product harder to take seriously in a B2B industrial buying process.</p>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-num">02 — The Approach</span>
+    <h2>Building a positioning wall between categories</h2>
+    <p>The work centered on identifying exactly which language, proof points, and comparisons signaled "industrial" to this buyer — and removing everything that echoed the consumer category, even where the underlying technology overlapped.</p>
+    <ul>
+      <li>Mapped the language jobsite buyers actually use to evaluate equipment, distinct from consumer power-station marketing.</li>
+      <li>Rebuilt the competitive frame around durability, fleet integration, and total cost of ownership rather than capacity or price alone.</li>
+      <li>Rewrote core messaging and web copy to speak to a technical buyer making a purchase decision, not a consumer comparing gadgets.</li>
+    </ul>
+  </section>
+
+  <section class="cs-section">
+    <span class="cs-num">03 — The Result</span>
+    <h2>A platform, not a gadget</h2>
+    <p>[Add your real positioning outcomes here — how sales conversations changed, how the product was perceived in RFPs or competitive deals, or any before/after language shift worth highlighting.]</p>
+  </section>
+
+  <div class="cs-cta-row">
+    <a class="cs-back" href="../index.html#gtm">← Back to full portfolio</a>
+  </div>
+</main>
+
+<div class="foot">Cecillia Lescano — Product Marketing</div>
