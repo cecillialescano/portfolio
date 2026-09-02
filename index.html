@@ -102,6 +102,7 @@
     letter-spacing:0.005em;
     white-space:nowrap;
     color:var(--ink);
+    text-decoration:none;
   }
   .brand span{color:var(--ink-soft); font-family:"Inter", sans-serif; font-weight:500;}
   .topnav .navlinks a{color:var(--ink-soft); position:relative;}
@@ -158,9 +159,9 @@
   .hero{
     position:relative;
     overflow:hidden;
-    background:#000;
+    background:linear-gradient(165deg, #0c0c0c 0%, #000000 55%);
     color:var(--forest-ink);
-    padding:clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,4vw,3rem) clamp(4rem,7vw,5.5rem);
+    padding:clamp(1.67rem,3.33vw,2.5rem) clamp(1.25rem,4vw,3rem) clamp(2.67rem,4.67vw,3.67rem);
   }
   .hero-inner{
     position:relative;
@@ -173,8 +174,8 @@
 
   .hero-top{
     display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:clamp(2rem,4vw,3.25rem);
+    grid-template-columns:1.1fr 0.9fr;
+    gap:clamp(1.25rem,2.5vw,2rem);
     align-items:end;
   }
   .hero-stage{
@@ -189,10 +190,11 @@
     overflow:hidden;
     aspect-ratio:4/4.4;
     border-radius:4px;
+    margin-left:clamp(-7rem,-11vw,-4rem);
     background:
       linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 26%, transparent 50%),
       linear-gradient(200deg, rgba(6,16,12,0.1) 0%, rgba(6,16,12,0.5) 100%),
-      url("images/hero-background.jpg") center/cover no-repeat;
+      url("images/hero-background.jpg") center bottom/cover no-repeat;
     filter:url(#heroGrain);
     box-shadow:0 40px 80px -24px rgba(0,0,0,0.7);
   }
@@ -204,7 +206,7 @@
     letter-spacing:-0.015em;
     font-size:clamp(2.4rem, 5.4vw, 4rem);
     line-height:1.03;
-    max-width:22ch;
+    max-width:19ch;
     text-wrap:balance;
   }
   .hero p.lede{
@@ -373,7 +375,9 @@
     flex-direction:column;
     border-radius:24px;
     overflow:hidden;
-    background:linear-gradient(135deg, var(--forest-raised) 0%, var(--forest) 100%);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0) 14%),
+      linear-gradient(135deg, var(--forest-raised) 0%, var(--forest) 100%);
     color:var(--forest-ink);
     box-shadow:0 24px 48px -28px rgba(3,8,14,0.6);
   }
@@ -665,12 +669,15 @@
     align-items:center;
   }
   .about-avatar{
+    display:block;
     width:9rem;
     height:9rem;
     border-radius:18px;
     overflow:hidden;
     flex:none;
+    transition:opacity .15s;
   }
+  .about-avatar:hover{opacity:0.85;}
   .about-avatar img{
     width:100%;
     height:100%;
@@ -798,7 +805,7 @@
     .grid{grid-template-columns:1fr;}
     .section-head{align-items:flex-start;}
     .hero-top{grid-template-columns:1fr;}
-    .hero-visual{order:-1; aspect-ratio:16/10;}
+    .hero-visual{order:-1; aspect-ratio:16/10; margin-left:0;}
     .stack-body{grid-template-columns:1fr; min-height:auto;}
     .stack-visual{aspect-ratio:16/10;}
     .stack-slot{top:3.5rem; padding-bottom:1.25rem;}
@@ -809,7 +816,7 @@
 </style>
 
 <nav class="topnav">
-  <div class="brand">Cecillia Lescano <span>| Deft Strategies</span></div>
+  <a class="brand" href="index.html">Cecillia Lescano <span>| Deft Strategies</span></a>
   <ul class="navlinks" id="navlinks">
     <li><a href="#gtm" data-nav="gtm">Go-to-Market</a></li>
     <li><a href="#storytelling" data-nav="storytelling">Storytelling</a></li>
@@ -835,21 +842,21 @@
           <span class="toc-name">Go-to-Market</span>
           <span class="toc-num">positioning, launch, category strategy</span>
         </span>
-        <span class="toc-arrow">→</span>
+        <span class="toc-arrow">↓</span>
       </a>
       <a href="#storytelling" data-tocnav="storytelling">
         <span class="toc-copy">
           <span class="toc-name">Storytelling</span>
           <span class="toc-num">narrative, web, thought leadership</span>
         </span>
-        <span class="toc-arrow">→</span>
+        <span class="toc-arrow">↓</span>
       </a>
       <a href="#enablement" data-tocnav="enablement">
         <span class="toc-copy">
           <span class="toc-name">Sales Enablement</span>
           <span class="toc-num">decks, collateral, field tools</span>
         </span>
-        <span class="toc-arrow">→</span>
+        <span class="toc-arrow">↓</span>
       </a>
     </div>
   </div>
@@ -1069,18 +1076,19 @@
 <!-- ================= ABOUT ================= -->
 <section class="section section--plum" id="about">
   <div class="section-inner about-layout">
-    <div class="about-avatar"><img src="images/headshot.jpg" alt="Cecillia Lescano"></div>
+    <a class="about-avatar" href="https://www.linkedin.com/in/cecillialescano/" target="_blank" rel="noopener" aria-label="Cecillia Lescano on LinkedIn"><img src="images/headshot.jpg" alt="Cecillia Lescano"></a>
     <div class="about-copy">
       <div class="eyebrow">Industrial PMM, Storytelling &amp; Enablement</div>
       <h2>Cecillia Lescano</h2>
       <div class="about-body">
         <p class="about-bio">I'm a product marketer for companies selling into industrial and clean-tech markets — where the buyers are technical, the sales cycles are long, and the story has to hold up under scrutiny. I build go-to-market strategy, brand narrative, and sales enablement that make complex, category-defining products easy to say yes to.</p>
+        <!-- Keep this list alphabetized whenever tags are added, removed, or renamed. -->
         <div class="about-tags">
-          <span class="tag-pill">Enterprise Tech</span>
           <span class="tag-pill">Clean Energy</span>
           <span class="tag-pill">Clean Tech</span>
           <span class="tag-pill">Climate</span>
           <span class="tag-pill">Construction</span>
+          <span class="tag-pill">Enterprise Tech</span>
           <span class="tag-pill">Film &amp; TV</span>
           <span class="tag-pill">Finance</span>
           <span class="tag-pill">Manufacturing</span>
