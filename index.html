@@ -39,9 +39,10 @@
     --plum-glow:#5c4863;
     --plum-ink-soft:#c9bdd0;
     --plum-line:rgba(255,255,255,0.14);
-    --vibrant-green:#7ed957;
-    --light-blue:#7fe3d6;
+    --vibrant-green:#01a04d;
+    --light-blue:#b8f9f3;
     --nav-neutral:#8a948d;
+    --border-neutral:#c7c2b8;
   }
 
   *{box-sizing:border-box;}
@@ -96,21 +97,21 @@
   }
   .brand{
     font-family:"Space Grotesk", sans-serif;
-    font-size:1rem;
+    font-size:1.15rem;
     font-weight:600;
     letter-spacing:0.005em;
     white-space:nowrap;
     color:var(--ink);
   }
   .brand span{color:var(--ink-soft); font-family:"Inter", sans-serif; font-weight:500;}
-  .topnav .navlinks a{color:var(--ink-soft);}
-  .topnav .navlinks a:hover, .topnav .navlinks a.is-active{color:var(--ink); border-color:var(--nav-neutral);}
+  .topnav .navlinks a{color:var(--ink-soft); position:relative;}
+  .topnav .navlinks a:hover, .topnav .navlinks a.is-active{color:var(--ink); border-color:transparent;}
   .navlinks{
     display:flex;
-    gap:1.5rem;
+    gap:1.75rem;
     list-style:none;
     margin:0; padding:0;
-    font-size:0.82rem;
+    font-size:0.9rem;
     font-weight:600;
   }
   .topnav .navlinks a, .foot .navlinks a{
@@ -125,15 +126,31 @@
     padding:0.3rem 0;
     border-bottom:1.5px solid transparent;
     white-space:nowrap;
-    transition:color .15s, border-color .15s;
+    position:relative;
+    transition:color .18s;
+  }
+  .navlinks a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:100%;
+    bottom:-1.5px;
+    height:1.5px;
+    background:currentColor;
+    transition:right .25s cubic-bezier(.4,0,.2,1);
+  }
+  .navlinks a:hover::after, .navlinks a.is-active::after{
+    right:0;
   }
   .navlinks a:hover{
     color:var(--forest-ink);
-    border-color:var(--forest-ink-soft);
+    transform:translateY(-1px);
   }
   .navlinks a.is-active{
     color:var(--forest-ink);
-    border-color:var(--forest-ink-soft);
+  }
+  .topnav .navlinks a:hover, .topnav .navlinks a.is-active{
+    transform:translateY(-1px);
   }
 
   /* ---------- hero (reference: dark forest hero, mono kicker, big
@@ -143,36 +160,37 @@
     overflow:hidden;
     background:#000;
     color:var(--forest-ink);
-    padding:clamp(4.5rem,10vw,7.5rem) clamp(1.25rem,4vw,3rem) clamp(4.5rem,9vw,7rem);
+    padding:clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,4vw,3rem) clamp(2.5rem,4.5vw,3.5rem);
   }
   .hero-inner{
     position:relative;
     z-index:1;
-    max-width:84rem;
+    max-width:88rem;
     margin:0 auto;
   }
   .hero .eyebrow{color:var(--forest-ink-soft); letter-spacing:0.22em;}
 
   .hero-top{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:clamp(2.5rem,5.5vw,4.5rem);
-    align-items:end;
+    position:relative;
   }
   .hero-stage{
-    padding-top:1.1rem;
-    padding-bottom:0.5rem;
     position:relative;
     z-index:2;
+    max-width:56%;
+    padding-top:0.6rem;
+    padding-bottom:0.5rem;
   }
   .hero-visual{
-    position:relative;
+    position:absolute;
     z-index:1;
+    top:0;
+    bottom:0;
+    right:0;
+    width:57%;
     overflow:hidden;
-    aspect-ratio:4/3.1;
-    border-radius:26px;
+    border-radius:4px;
     background:
-      linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.08) 22%, transparent 45%),
+      linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 30%, transparent 55%),
       linear-gradient(200deg, rgba(6,16,12,0.1) 0%, rgba(6,16,12,0.5) 100%),
       url("images/hero-background.jpg") center/cover no-repeat;
     filter:url(#heroGrain);
@@ -181,21 +199,21 @@
   .hero-headline{
     position:relative;
     z-index:2;
-    margin:0.85rem 0 0;
+    margin:0.75rem 0 0;
     font-weight:400;
     letter-spacing:-0.015em;
-    font-size:clamp(2.6rem, 6.4vw, 4.75rem);
-    line-height:1.02;
-    max-width:14ch;
+    font-size:clamp(2.4rem, 5.4vw, 4rem);
+    line-height:1.03;
+    max-width:19ch;
     text-wrap:balance;
   }
   .hero p.lede{
     position:relative;
     z-index:2;
-    margin:1.85rem 0 0;
-    max-width:42ch;
-    font-size:1.18rem;
-    line-height:1.6;
+    margin:1.35rem 0 0;
+    max-width:48ch;
+    font-size:1.1rem;
+    line-height:1.55;
     color:var(--forest-ink-bright);
   }
 
@@ -263,9 +281,7 @@
   .thumb .frame-x svg{width:100%; height:100%; display:block;}
   .thumb-a, .thumb-b, .thumb-c{transition:transform .3s ease;}
   .card:hover .thumb-a, .card:hover .thumb-b, .card:hover .thumb-c{transform:scale(1.05);}
-  .thumb-a{background:linear-gradient(155deg, rgba(230,229,224,0.5), rgba(240,238,233,0.12) 70%), var(--thumb-img) center/cover no-repeat;}
-  .thumb-b{background:linear-gradient(155deg, rgba(226,225,220,0.5), rgba(240,238,233,0.12) 70%), var(--thumb-img) center/cover no-repeat;}
-  .thumb-c{background:linear-gradient(155deg, rgba(233,232,227,0.5), rgba(240,238,233,0.12) 70%), var(--thumb-img) center/cover no-repeat;}
+  .thumb-a, .thumb-b, .thumb-c{background:var(--thumb-img) center/cover no-repeat;}
   .card-meta{
     position:relative;
     padding:1.25rem 1.5rem 1.5rem;
@@ -288,7 +304,7 @@
     transition:color .15s, transform .15s;
   }
   .card-cta-label{
-    border-bottom:1px solid var(--line-strong);
+    border-bottom:1px solid var(--border-neutral);
     padding-bottom:0.15rem;
     transition:border-color .15s;
   }
@@ -470,13 +486,17 @@
 
   .section--plum{
     background:
-      radial-gradient(85% 100% at 82% 8%, rgba(151,124,163,0.4), transparent 62%),
-      radial-gradient(65% 70% at 95% 85%, rgba(94,140,113,0.16), transparent 58%),
-      linear-gradient(160deg, var(--plum-glow) 0%, var(--plum-mid) 45%, var(--plum-deep) 100%);
+      radial-gradient(65% 80% at 88% 0%, rgba(151,124,163,0.26), transparent 55%),
+      radial-gradient(50% 55% at 95% 85%, rgba(94,140,113,0.09), transparent 55%),
+      linear-gradient(160deg, var(--plum-glow) 0%, var(--plum-mid) 26%, var(--plum-deep) 62%, var(--plum-deep) 100%);
   }
   .section--plum .eyebrow{color:var(--plum-ink-soft);}
   .section--plum h2{color:#ffffff;}
   .section--plum .about-bio{color:var(--plum-ink-soft);}
+  #about.section{
+    padding-top:clamp(2.5rem,5vw,3.5rem);
+    padding-bottom:clamp(2.5rem,5vw,3.5rem);
+  }
 
   .tile-grid{
     display:flex;
@@ -583,19 +603,6 @@
   }
   .tile-cta:hover{color:var(--forest-ink); border-color:var(--forest-ink);}
 
-  @media (max-width: 860px){
-    .navlinks{display:none;}
-    .toc{grid-template-columns:1fr; gap:1rem;}
-    .grid{grid-template-columns:1fr;}
-    .section-head{align-items:flex-start;}
-    .hero-top{grid-template-columns:1fr;}
-    .hero-visual{order:-1; aspect-ratio:16/10;}
-    .stack-body{grid-template-columns:1fr; min-height:auto;}
-    .stack-visual{aspect-ratio:16/10;}
-    .stack-slot{top:3.5rem; padding-bottom:1.25rem;}
-    .tile-row, .tile-row.is-reversed{grid-template-columns:1fr;}
-    .tile{min-height:18rem;}
-  }
   @media (min-width:861px) and (max-width:1120px){
     .grid{grid-template-columns:repeat(2,1fr);}
   }
@@ -603,7 +610,7 @@
   /* ---------- table of contents row — styled as obvious jump-to-section
      CTAs; hover fills solid, mirroring the top nav's active-pill treatment ---------- */
   .toc{
-    margin-top:2.75rem;
+    margin-top:1.75rem;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:0.85rem;
@@ -616,7 +623,7 @@
     justify-content:space-between;
     gap:1rem;
     text-decoration:none;
-    padding:1.25rem 1.4rem;
+    padding:1.05rem 1.4rem;
     border:1.5px solid rgba(242,247,238,0.3);
     border-radius:16px;
     color:var(--forest-ink);
@@ -673,18 +680,28 @@
     font-size:clamp(1.7rem,3vw,2.15rem);
     margin-top:0.5rem;
   }
-  .about-bio{
+  .about-body{
+    display:flex;
+    gap:clamp(2rem,4vw,3rem);
+    align-items:flex-start;
     margin-top:1.1rem;
+  }
+  .about-bio{
+    margin-top:0;
     font-size:1rem;
     line-height:1.75;
     color:var(--ink-soft);
-    max-width:56ch;
+    max-width:50ch;
+    flex:1 1 auto;
   }
   .about-tags{
     display:flex;
     flex-wrap:wrap;
+    align-content:flex-start;
     gap:0.55rem;
-    margin-top:1.5rem;
+    margin-top:0;
+    flex:0 0 13.5rem;
+    max-width:13.5rem;
   }
   .tag-pill{
     font-family:"IBM Plex Mono", monospace;
@@ -695,10 +712,20 @@
     border-radius:999px;
     border:1px solid var(--plum-line);
     color:var(--plum-ink-soft);
+    transition:background-color .18s, border-color .18s, color .18s, transform .18s;
+    cursor:default;
+  }
+  .tag-pill:hover{
+    background-color:rgba(242,247,238,0.12);
+    border-color:var(--plum-ink-soft);
+    color:#ffffff;
+    transform:translateY(-2px);
   }
   @media (max-width:640px){
     .about-layout{grid-template-columns:1fr; text-align:left;}
     .about-avatar{width:6rem; height:6rem;}
+    .about-body{flex-direction:column;}
+    .about-tags{flex:none; max-width:none;}
   }
 
   .foot{
@@ -750,9 +777,9 @@
     border-radius:999px;
     border:1.5px solid rgba(242,247,238,0.25);
     color:var(--forest-ink-soft);
-    transition:border-color .15s, color .15s;
+    transition:border-color .15s, color .15s, transform .15s;
   }
-  .foot-social:hover{border-color:var(--accent); color:var(--forest-ink);}
+  .foot-social:hover{border-color:var(--forest-ink-soft); color:var(--forest-ink); transform:translateY(-2px);}
   .foot-social svg{width:1.05rem; height:1.05rem;}
   .foot-avatar img{
     width:100%;
@@ -761,13 +788,25 @@
     border-radius:10px;
     display:block;
   }
-  @media (max-width:860px){
+  @media (max-width: 860px){
+    .navlinks{display:none;}
+    .toc{grid-template-columns:1fr; gap:1rem;}
+    .grid{grid-template-columns:1fr;}
+    .section-head{align-items:flex-start;}
+    .hero-top{min-height:auto;}
+    .hero-stage{max-width:100%;}
+    .hero-visual{position:static; width:100%; aspect-ratio:16/10; margin-top:1.5rem;}
+    .stack-body{grid-template-columns:1fr; min-height:auto;}
+    .stack-visual{aspect-ratio:16/10;}
+    .stack-slot{top:3.5rem; padding-bottom:1.25rem;}
+    .tile-row, .tile-row.is-reversed{grid-template-columns:1fr;}
+    .tile{min-height:18rem;}
     .foot-row .navlinks{display:none;}
   }
 </style>
 
 <nav class="topnav">
-  <div class="brand">Cecillia Lescano <span>— Deft Strategies</span></div>
+  <div class="brand">Cecillia Lescano <span>| Deft Strategies</span></div>
   <ul class="navlinks" id="navlinks">
     <li><a href="#gtm" data-nav="gtm">Go-to-Market</a></li>
     <li><a href="#storytelling" data-nav="storytelling">Storytelling</a></li>
@@ -910,7 +949,7 @@
           </div>
         </div>
 
-        <div class="tile tile-photo-d">
+        <div class="tile tile-plain">
           <div class="tile-inner">
             <div class="tile-mark">✳</div>
             <div class="tile-copy">
@@ -924,12 +963,15 @@
       </div>
 
       <div class="tile-row is-reversed">
-        <div class="tile tile-photo-b">
-          <div class="tile-copy">
-            <span class="card-tag">Product Narrative &amp; Storytelling</span>
-            <div class="card-title">Voltstack field stories: proof from the jobsite</div>
-            <p class="stack-note">Customer-story content built to make an unfamiliar category tangible — real crews, real jobsites, told in their own words.</p>
-            <a class="tile-cta" href="case_studies/portable-electric-storytelling.html">Read more →</a>
+        <div class="tile tile-plain">
+          <div class="tile-inner">
+            <div class="tile-mark">✦</div>
+            <div class="tile-copy">
+              <span class="card-tag">Product Narrative &amp; Storytelling</span>
+              <div class="card-title">Voltstack field stories: proof from the jobsite</div>
+              <p class="stack-note">Customer-story content built to make an unfamiliar category tangible — real crews, real jobsites, told in their own words.</p>
+              <a class="tile-cta" href="case_studies/portable-electric-storytelling.html">Read more →</a>
+            </div>
           </div>
         </div>
 
@@ -958,7 +1000,7 @@
     </div>
 
     <div class="grid">
-      <a class="card" href="#">
+      <a class="card" href="https://docs.google.com/presentation/d/e/2PACX-1vRE9aKBV1wT4KQ5aydcXRD1igYxjNmUPql2BGAsSo_qTGU8ffVVj5wi22lGS126MQ/pub?start=false&amp;loop=false&amp;delayms=60000&amp;slide=id.p1" target="_blank" rel="noopener">
         <div class="thumb thumb-c" style="--thumb-img:url('images/sales-pitch-municipal.jpg');">
         </div>
         <div class="card-meta">
@@ -968,7 +1010,7 @@
         </div>
       </a>
 
-      <a class="card" href="#">
+      <a class="card" href="https://static1.squarespace.com/static/677c11b438d65101a216d70f/t/6a330324d5946a59a4ab2c2a/1781728036979/Pitch+Deck+%26+Sales+Narrative+-+Manifest+Climate.pdf" target="_blank" rel="noopener">
         <div class="thumb thumb-a" style="--thumb-img:url('images/sales-pitch-finance.jpg');">
         </div>
         <div class="card-meta">
@@ -978,7 +1020,7 @@
         </div>
       </a>
 
-      <a class="card" href="#">
+      <a class="card" href="https://static1.squarespace.com/static/677c11b438d65101a216d70f/t/67d9dba27f6e4d3fff03bcd3/1742330788073/product-brief-carbonet-specialops.pdf" target="_blank" rel="noopener">
         <div class="thumb thumb-b" style="--thumb-img:url('images/sales-collateral.jpg');">
         </div>
         <div class="card-meta">
@@ -988,7 +1030,7 @@
         </div>
       </a>
 
-      <a class="card" href="#">
+      <a class="card" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxC9yzzvpmCiBLvXDS4Mfk2uCmgjcn2Eswymj4X-Faai5HERpkLu0YSrN0xoT6Kq9p9nb8DS9dcD9r/pubhtml" target="_blank" rel="noopener">
         <div class="thumb thumb-a" style="--thumb-img:url('images/sales-competitive.jpg');">
         </div>
         <div class="card-meta">
@@ -998,7 +1040,7 @@
         </div>
       </a>
 
-      <a class="card" href="#">
+      <a class="card" href="https://app.storylane.io/demo/btso1zoyrt4c?embed=inline" target="_blank" rel="noopener">
         <div class="thumb thumb-b" style="--thumb-img:url('images/sales-product-onboarding.jpg');">
         </div>
         <div class="card-meta">
@@ -1008,7 +1050,7 @@
         </div>
       </a>
 
-      <a class="card" href="#">
+      <a class="card" href="https://www.youtube.com/watch?v=KO7mc08GLk0" target="_blank" rel="noopener">
         <div class="thumb thumb-c" style="--thumb-img:url('images/sales-video.jpg');">
         </div>
         <div class="card-meta">
@@ -1028,21 +1070,22 @@
     <div class="about-copy">
       <div class="eyebrow">Industrial PMM, Storytelling &amp; Enablement</div>
       <h2>Cecillia Lescano</h2>
-      <p class="about-bio">I'm a product marketer for companies selling into industrial and clean-tech markets — where the buyers are technical, the sales cycles are long, and the story has to hold up under scrutiny. I build go-to-market strategy, brand narrative, and sales enablement that make complex, category-defining products easy to say yes to.</p>
-      <div class="about-tags">
-        <span class="tag-pill">Big Tech</span>
-        <span class="tag-pill">Clean Energy</span>
-        <span class="tag-pill">Clean Tech</span>
-        <span class="tag-pill">Climate</span>
-        <span class="tag-pill">Construction</span>
-        <span class="tag-pill">F&amp;B</span>
-        <span class="tag-pill">Film &amp; TV</span>
-        <span class="tag-pill">Finance</span>
-        <span class="tag-pill">Manufacturing</span>
-        <span class="tag-pill">Oil &amp; Gas</span>
-        <span class="tag-pill">Solar</span>
-        <span class="tag-pill">Utilities</span>
-        <span class="tag-pill">Water</span>
+      <div class="about-body">
+        <p class="about-bio">I'm a product marketer for companies selling into industrial and clean-tech markets — where the buyers are technical, the sales cycles are long, and the story has to hold up under scrutiny. I build go-to-market strategy, brand narrative, and sales enablement that make complex, category-defining products easy to say yes to.</p>
+        <div class="about-tags">
+          <span class="tag-pill">Big Tech</span>
+          <span class="tag-pill">Clean Energy</span>
+          <span class="tag-pill">Clean Tech</span>
+          <span class="tag-pill">Climate</span>
+          <span class="tag-pill">Construction</span>
+          <span class="tag-pill">Film &amp; TV</span>
+          <span class="tag-pill">Finance</span>
+          <span class="tag-pill">Manufacturing</span>
+          <span class="tag-pill">Oil &amp; Gas</span>
+          <span class="tag-pill">Solar</span>
+          <span class="tag-pill">Utilities</span>
+          <span class="tag-pill">Water</span>
+        </div>
       </div>
     </div>
   </div>
