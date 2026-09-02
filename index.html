@@ -172,23 +172,22 @@
   .hero .eyebrow{color:var(--forest-ink-soft); letter-spacing:0.22em;}
 
   .hero-top{
-    position:relative;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:clamp(2rem,4vw,3.25rem);
+    align-items:end;
   }
   .hero-stage{
     position:relative;
     z-index:2;
-    max-width:58%;
     padding-top:0.6rem;
     padding-bottom:0.5rem;
   }
   .hero-visual{
-    position:absolute;
+    position:relative;
     z-index:1;
-    top:0;
-    bottom:0;
-    right:0;
-    width:50%;
     overflow:hidden;
+    aspect-ratio:4/4.4;
     border-radius:4px;
     background:
       linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 26%, transparent 50%),
@@ -205,14 +204,14 @@
     letter-spacing:-0.015em;
     font-size:clamp(2.4rem, 5.4vw, 4rem);
     line-height:1.03;
-    max-width:19ch;
+    max-width:22ch;
     text-wrap:balance;
   }
   .hero p.lede{
     position:relative;
     z-index:2;
     margin:1.35rem 0 0;
-    max-width:48ch;
+    max-width:52ch;
     font-size:1.1rem;
     line-height:1.55;
     color:var(--forest-ink-bright);
@@ -374,7 +373,7 @@
     flex-direction:column;
     border-radius:24px;
     overflow:hidden;
-    background:linear-gradient(200deg, var(--forest-raised) 0%, var(--forest) 90%, #081611 145%);
+    background:linear-gradient(135deg, var(--forest-raised) 0%, var(--forest) 100%);
     color:var(--forest-ink);
     box-shadow:0 24px 48px -28px rgba(3,8,14,0.6);
   }
@@ -424,8 +423,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:
-      radial-gradient(140% 160% at 85% 0%, rgba(178,224,196,0.16), transparent 75%);
+    background:transparent;
   }
   .stack-shot{
     width:100%;
@@ -699,13 +697,13 @@
     flex:1 1 26rem;
   }
   .about-tags{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(6.5rem,1fr));
-    gap:0.6rem;
+    display:flex;
+    flex-wrap:wrap;
     align-content:flex-start;
+    gap:0.55rem;
     margin-top:0;
-    flex:0 0 23rem;
-    max-width:23rem;
+    flex:0 0 20rem;
+    max-width:20rem;
   }
   .tag-pill{
     font-family:"IBM Plex Mono", monospace;
@@ -799,9 +797,8 @@
     .toc{grid-template-columns:1fr; gap:1rem;}
     .grid{grid-template-columns:1fr;}
     .section-head{align-items:flex-start;}
-    .hero-top{min-height:auto;}
-    .hero-stage{max-width:100%;}
-    .hero-visual{position:static; width:100%; aspect-ratio:16/10; margin-top:1.5rem;}
+    .hero-top{grid-template-columns:1fr;}
+    .hero-visual{order:-1; aspect-ratio:16/10;}
     .stack-body{grid-template-columns:1fr; min-height:auto;}
     .stack-visual{aspect-ratio:16/10;}
     .stack-slot{top:3.5rem; padding-bottom:1.25rem;}
