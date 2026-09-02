@@ -160,11 +160,12 @@
     overflow:hidden;
     background:#000;
     color:var(--forest-ink);
-    padding:clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,4vw,3rem) clamp(2.5rem,4.5vw,3.5rem);
+    padding:clamp(2.5rem,5vw,3.75rem) clamp(1.25rem,4vw,3rem) clamp(4rem,7vw,5.5rem);
   }
   .hero-inner{
     position:relative;
     z-index:1;
+    width:100%;
     max-width:88rem;
     margin:0 auto;
   }
@@ -176,7 +177,7 @@
   .hero-stage{
     position:relative;
     z-index:2;
-    max-width:56%;
+    max-width:58%;
     padding-top:0.6rem;
     padding-bottom:0.5rem;
   }
@@ -186,11 +187,11 @@
     top:0;
     bottom:0;
     right:0;
-    width:57%;
+    width:50%;
     overflow:hidden;
     border-radius:4px;
     background:
-      linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 30%, transparent 55%),
+      linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 26%, transparent 50%),
       linear-gradient(200deg, rgba(6,16,12,0.1) 0%, rgba(6,16,12,0.5) 100%),
       url("images/hero-background.jpg") center/cover no-repeat;
     filter:url(#heroGrain);
@@ -373,7 +374,7 @@
     flex-direction:column;
     border-radius:24px;
     overflow:hidden;
-    background:linear-gradient(200deg, var(--forest-raised) 0%, var(--forest) 55%, #081611 100%);
+    background:linear-gradient(200deg, var(--forest-raised) 0%, var(--forest) 90%, #081611 145%);
     color:var(--forest-ink);
     box-shadow:0 24px 48px -28px rgba(3,8,14,0.6);
   }
@@ -424,7 +425,7 @@
     align-items:center;
     justify-content:center;
     background:
-      radial-gradient(120% 120% at 85% 0%, rgba(178,224,196,0.18), transparent 60%);
+      radial-gradient(140% 160% at 85% 0%, rgba(178,224,196,0.16), transparent 75%);
   }
   .stack-shot{
     width:100%;
@@ -548,7 +549,9 @@
       url("images/storytelling-thought-leadership.jpg") center/cover no-repeat;
   }
   .tile-plain{
-    background:var(--navy-raised);
+    background:
+      radial-gradient(120% 140% at 50% 0%, rgba(184,249,243,0.14), transparent 58%),
+      var(--navy-raised);
     align-items:stretch;
   }
   .tile-plain .tile-inner, .tile-photo-d .tile-inner{
@@ -610,7 +613,7 @@
   /* ---------- table of contents row — styled as obvious jump-to-section
      CTAs; hover fills solid, mirroring the top nav's active-pill treatment ---------- */
   .toc{
-    margin-top:1.75rem;
+    margin-top:3rem;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:0.85rem;
@@ -649,8 +652,8 @@
     font-size:1.1rem;
   }
   .toc a:hover{
-    background-color:#ffffff;
-    border-color:#ffffff;
+    background-color:var(--forest-ink-bright);
+    border-color:var(--forest-ink-bright);
     color:var(--forest);
     transform:translateY(-2px);
   }
@@ -682,7 +685,8 @@
   }
   .about-body{
     display:flex;
-    gap:clamp(2rem,4vw,3rem);
+    flex-wrap:wrap;
+    gap:clamp(1.5rem,4vw,3rem);
     align-items:flex-start;
     margin-top:1.1rem;
   }
@@ -692,26 +696,28 @@
     line-height:1.75;
     color:var(--ink-soft);
     max-width:50ch;
-    flex:1 1 auto;
+    flex:1 1 26rem;
   }
   .about-tags{
-    display:flex;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(3, minmax(6.5rem,1fr));
+    gap:0.6rem;
     align-content:flex-start;
-    gap:0.55rem;
     margin-top:0;
-    flex:0 0 13.5rem;
-    max-width:13.5rem;
+    flex:0 0 23rem;
+    max-width:23rem;
   }
   .tag-pill{
     font-family:"IBM Plex Mono", monospace;
     font-size:0.7rem;
     letter-spacing:0.07em;
     text-transform:uppercase;
-    padding:0.4rem 0.8rem;
+    text-align:center;
+    padding:0.4rem 0.6rem;
     border-radius:999px;
     border:1px solid var(--plum-line);
     color:var(--plum-ink-soft);
+    white-space:nowrap;
     transition:background-color .18s, border-color .18s, color .18s, transform .18s;
     cursor:default;
   }
@@ -1073,7 +1079,7 @@
       <div class="about-body">
         <p class="about-bio">I'm a product marketer for companies selling into industrial and clean-tech markets — where the buyers are technical, the sales cycles are long, and the story has to hold up under scrutiny. I build go-to-market strategy, brand narrative, and sales enablement that make complex, category-defining products easy to say yes to.</p>
         <div class="about-tags">
-          <span class="tag-pill">Big Tech</span>
+          <span class="tag-pill">Enterprise Tech</span>
           <span class="tag-pill">Clean Energy</span>
           <span class="tag-pill">Clean Tech</span>
           <span class="tag-pill">Climate</span>
