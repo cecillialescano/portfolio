@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lescano Portfolio Wireframe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -204,7 +205,7 @@
     background:
       linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 24%, transparent 46%),
       linear-gradient(200deg, rgba(6,16,12,0.1) 0%, rgba(6,16,12,0.45) 100%),
-      url("images/hero-background.jpg") center/cover no-repeat;
+      url("images/hero-1431965400057-a84b80cfdbff.jpg") center 62%/135% no-repeat;
     box-shadow:0 30px 60px -22px rgba(0,0,0,0.65);
   }
   .hero-headline{
@@ -500,7 +501,7 @@
   .section--navy{
     background:var(--navy-deep);
   }
-  .section--navy .eyebrow{color:var(--light-blue);}
+  .section--navy .eyebrow{color:var(--navy-accent);}
   .section--navy h2{color:var(--forest-ink);}
   .section--navy .section-head .desc{color:var(--navy-ink-soft);}
   .section--navy .card-tag{color:var(--forest-ink);}
@@ -583,7 +584,7 @@
   .tile-mark{
     padding:1.75rem 1.75rem 0;
     font-size:1.6rem;
-    color:var(--light-blue);
+    color:var(--navy-accent);
     opacity:0.9;
   }
   .tile-photo-a .tile-copy, .tile-photo-b .tile-copy, .tile-photo-c .tile-copy, .tile-photo-d .tile-copy{
@@ -618,7 +619,7 @@
     font-size:0.95rem;
     letter-spacing:0.04em;
     text-decoration:none;
-    color:var(--light-blue);
+    color:var(--navy-accent);
     border-bottom:1px solid rgba(127,227,214,0.4);
     padding-bottom:0.15rem;
     width:fit-content;
@@ -681,16 +682,18 @@
 
   /* ---------- About ---------- */
   .about-layout{
-    display:grid;
-    grid-template-columns:auto 1fr;
-    gap:clamp(2rem,4vw,3.5rem);
+    display:block;
+  }
+  .about-heading{
+    display:flex;
     align-items:center;
+    gap:1rem;
   }
   .about-avatar{
     display:block;
-    width:9rem;
-    height:9rem;
-    border-radius:18px;
+    width:3.25rem;
+    height:3.25rem;
+    border-radius:10px;
     overflow:hidden;
     flex:none;
     transition:opacity .15s;
@@ -702,17 +705,18 @@
     object-fit:cover;
     display:block;
   }
+  .about-heading-copy{min-width:0;}
   .about-copy h2{
     font-size:clamp(1.7rem,3vw,2.15rem);
-    margin-top:0.5rem;
+    margin-top:0.3rem;
   }
   .about-body{
     display:flex;
     flex-wrap:wrap;
     gap:clamp(2.25rem,5.5vw,4.5rem);
     align-items:flex-start;
-    justify-content:space-between;
-    margin-top:1.1rem;
+    justify-content:flex-start;
+    margin-top:1.5rem;
   }
   .about-bio{
     margin-top:0;
@@ -726,10 +730,9 @@
     display:flex;
     flex-wrap:wrap;
     align-content:flex-start;
-    justify-content:flex-end;
+    justify-content:flex-start;
     gap:0.55rem;
     margin-top:0;
-    margin-left:auto;
     flex:0 0 22rem;
     max-width:22rem;
   }
@@ -754,8 +757,6 @@
     transform:translateY(-2px);
   }
   @media (max-width:640px){
-    .about-layout{grid-template-columns:1fr; text-align:left;}
-    .about-avatar{width:6rem; height:6rem;}
     .about-body{flex-direction:column;}
     .about-tags{flex:none; max-width:none;}
   }
@@ -1097,10 +1098,14 @@
 <!-- ================= ABOUT ================= -->
 <section class="section section--plum" id="about">
   <div class="section-inner about-layout">
-    <a class="about-avatar" href="https://www.linkedin.com/in/cecillialescano/" target="_blank" rel="noopener" aria-label="Cecillia Lescano on LinkedIn"><img src="images/headshot.jpg" alt="Cecillia Lescano"></a>
     <div class="about-copy">
-      <div class="eyebrow">Industrial PMM, Storytelling &amp; Enablement</div>
-      <h2>Cecillia Lescano</h2>
+      <div class="about-heading">
+        <a class="about-avatar" href="https://www.linkedin.com/in/cecillialescano/" target="_blank" rel="noopener" aria-label="Cecillia Lescano on LinkedIn"><img src="images/headshot.jpg" alt="Cecillia Lescano"></a>
+        <div class="about-heading-copy">
+          <div class="eyebrow">Industrial PMM, Storytelling &amp; Enablement</div>
+          <h2>Cecillia Lescano</h2>
+        </div>
+      </div>
       <div class="about-body">
         <p class="about-bio">I gravitate toward complicated products. The technical kind, usually, with long sales cycles, lots of acronyms, and a tendency to be harder to explain than they should be. I’ve spent a good part of my career figuring out what’s actually interesting about them, how to tell that story, and how to get it in front of the people who need to hear it. As it turns out, even good products need someone to explain why anyone should care.</p>
         <!-- Keep this list alphabetized whenever tags are added, removed, or renamed. -->
