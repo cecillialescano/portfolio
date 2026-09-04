@@ -185,14 +185,21 @@
 
   /* Desktop: single full-bleed landscape frame (same orientation as the
      mobile crop below) with the headline typeset directly over the image,
-     sized so the row's overall height matches what it was before. */
+     sized so the row's overall height matches what it was before. The
+     image itself breaks out of .hero-inner's side padding and .hero's top
+     padding so it reaches the true top/left/right edges of the section;
+     the bottom fade stays put since it sits above the (unmoved) toc row. */
   .hero-top{
     position:relative;
-    border-radius:14px;
     overflow:hidden;
+    width:100vw;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+    margin-top:calc(-1 * clamp(1.67rem,3.33vw,2.5rem));
     aspect-ratio:2.05/1;
     max-height:35.25rem;
-    box-shadow:0 30px 60px -22px rgba(0,0,0,0.65);
   }
   .hero-visual{
     position:absolute;
@@ -210,7 +217,7 @@
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    padding:clamp(1.5rem,3vw,2.75rem) clamp(1.5rem,3.5vw,3rem);
+    padding:clamp(1.5rem,3vw,2.75rem) clamp(1.25rem,4vw,3rem) clamp(1.75rem,3.2vw,2.5rem);
   }
   .hero-headline{
     position:relative;
@@ -835,6 +842,12 @@
       grid-template-columns:1fr;
       gap:1.5rem;
       position:static;
+      width:auto;
+      left:auto;
+      right:auto;
+      margin-left:0;
+      margin-right:0;
+      margin-top:0;
       aspect-ratio:auto;
       max-height:none;
       border-radius:0;
