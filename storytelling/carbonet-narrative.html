@@ -5,21 +5,26 @@
 
 <style>
   :root{
-    --bg:#f1fdea;
-    --ink:#15211b;
-    --ink-soft:#44534b;
-    --ink-faint:#7c8b82;
-    --line:#c9dec0;
-    --accent:#0f8a4c;
-    --forest:#062c22;
-    --forest-raised:#0d3f30;
+    /* Storytelling palette — matches the dark-navy Storytelling section
+       on the home page, not the green Go-to-Market palette. */
+    --bg:#061324;
+    --ink:#eef4fb;
+    --ink-soft:#9fb4c9;
+    --ink-faint:#6e84a3;
+    --line:rgba(255,255,255,0.16);
+    --accent:#b8f9f3;
+    --forest:#102544;
+    --forest-raised:#16305c;
     --forest-ink:#ffffff;
-    --forest-ink-soft:#adc9bd;
+    --forest-ink-soft:#9fb4c9;
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
-    background:var(--bg);
+    background:
+      radial-gradient(120% 60% at 85% -10%, rgba(127,184,232,0.16), transparent 60%),
+      radial-gradient(90% 50% at 8% 110%, rgba(184,249,243,0.07), transparent 60%),
+      var(--bg);
     color:var(--ink);
     font-family:"Inter", ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -71,7 +76,7 @@
     font-size:0.78rem;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--ink-faint);
+    color:var(--accent);
   }
   .cs-title{
     margin:1.1rem 0 0;
@@ -157,9 +162,15 @@
     gap:clamp(1.25rem,2.5vw,2rem);
   }
   .cs-media-item{
-    border-radius:10px;
+    border-radius:14px;
     overflow:hidden;
     background:var(--forest);
+    border:1px solid rgba(255,255,255,0.16);
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .cs-media-item:hover{
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,0.34);
   }
   .cs-media-item img,
   .cs-media-item video{
