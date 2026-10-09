@@ -5,12 +5,15 @@
 
 <style>
   :root{
-    --bg:#f1fdea;
+    /* Go-to-Market palette — matches the tan Go-to-Market section on the
+       home page (--news-bg ground, forest-green tiles, vibrant-green
+       highlight), mirroring how the Storytelling pages echo their section. */
+    --bg:#f0eee9;
     --ink:#15211b;
     --ink-soft:#44534b;
-    --ink-faint:#7c8b82;
-    --line:#c9dec0;
-    --accent:#0f8a4c;
+    --ink-faint:#6b7a72;
+    --line:rgba(21,33,27,0.16);
+    --accent:#01a04d;
     --forest:#062c22;
     --forest-raised:#0d3f30;
     --forest-ink:#ffffff;
@@ -71,7 +74,7 @@
     font-size:0.78rem;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--ink-faint);
+    color:var(--accent);
   }
   .cs-title{
     margin:1.1rem 0 0;
@@ -157,9 +160,16 @@
     gap:clamp(1.25rem,2.5vw,2rem);
   }
   .cs-media-item{
-    border-radius:10px;
+    border-radius:14px;
     overflow:hidden;
     background:var(--forest);
+    border:1px solid rgba(255,255,255,0.16);
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .cs-media-item:hover{
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,0.34);
+    box-shadow:0 20px 36px -22px rgba(14,36,25,0.45);
   }
   .cs-media-item img,
   .cs-media-item video{
