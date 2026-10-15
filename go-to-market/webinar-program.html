@@ -48,23 +48,30 @@
     align-items:center;
     justify-content:space-between;
     gap:1.5rem;
-    padding:1.5rem clamp(1.25rem,4vw,3rem);
+    padding:1.05rem clamp(1.25rem,4vw,3rem);
   }
   .brand{
     font-family:"Space Grotesk", sans-serif;
-    font-size:1rem;
+    font-size:1.15rem;
     font-weight:600;
+    letter-spacing:0.005em;
+    white-space:nowrap;
     color:var(--ink);
     text-decoration:none;
   }
   .back-link{
-    font-family:"IBM Plex Mono", monospace;
-    font-size:0.8rem;
-    letter-spacing:0.04em;
+    display:inline-flex;
+    align-items:center;
+    font-family:"Inter", ui-sans-serif, system-ui, sans-serif;
+    font-size:0.9rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    white-space:nowrap;
     text-decoration:none;
-    color:var(--ink);
-    border-bottom:1px solid var(--line);
-    padding-bottom:0.15rem;
+    color:var(--ink-soft);
+    padding:0.3rem 0;
+    border-bottom:1.5px solid transparent;
     transition:color .15s, border-color .15s;
   }
   .back-link:hover{color:var(--accent); border-color:var(--accent);}
