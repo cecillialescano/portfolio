@@ -26,6 +26,9 @@
     color:var(--ink);
     font-family:"Inter", ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
   }
   h1{
     font-family:"Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -35,6 +38,9 @@
   }
   a{color:inherit;}
   p{margin:0;}
+  main{flex:1; display:flex; flex-direction:column;}
+  .cs-head{width:100%;}
+  .cs-layout{width:100%; flex:1; align-content:start;}
 
   /* ---------- nav ---------- */
   .topnav{
@@ -56,7 +62,7 @@
     font-size:0.8rem;
     letter-spacing:0.04em;
     text-decoration:none;
-    color:var(--ink-soft);
+    color:var(--ink);
     border-bottom:1px solid var(--line);
     padding-bottom:0.15rem;
     transition:color .15s, border-color .15s;
@@ -67,7 +73,7 @@
   .cs-head{
     max-width:88rem;
     margin:0 auto;
-    padding:clamp(1rem,3vw,2rem) clamp(1.25rem,4vw,3rem) 0;
+    padding:clamp(0.25rem,1vw,0.75rem) clamp(1.25rem,4vw,3rem) 0;
   }
   .cs-index{
     font-family:"IBM Plex Mono", monospace;
@@ -77,26 +83,25 @@
     color:var(--accent);
   }
   .cs-title{
-    margin:1.1rem 0 0;
-    font-size:clamp(2rem,4vw,3.1rem);
+    margin:0.7rem 0 0;
+    font-size:clamp(1.9rem,3.3vw,2.7rem);
     line-height:1.1;
     letter-spacing:-0.01em;
-    max-width:38ch;
+    max-width:52ch;
   }
   .cs-title em{
     font-style:normal;
-    color:var(--ink-faint);
   }
 
   /* ---------- two-column layout ---------- */
   .cs-layout{
     display:grid;
-    grid-template-columns:minmax(18rem,0.82fr) 1.18fr;
+    grid-template-columns:minmax(20rem,1fr) 1fr;
     align-items:start;
-    gap:clamp(2rem,4vw,4rem);
+    gap:clamp(1.5rem,3vw,3rem);
     max-width:88rem;
     margin:0 auto;
-    padding:clamp(2rem,4vw,3rem) clamp(1.25rem,4vw,3rem) clamp(4rem,8vw,6rem);
+    padding:clamp(1.25rem,2.2vw,1.75rem) clamp(1.25rem,4vw,3rem) clamp(1.5rem,3vw,2.25rem);
   }
 
   .cs-col-text{
@@ -107,18 +112,18 @@
     font-family:"IBM Plex Mono", monospace;
     font-size:0.8rem;
     letter-spacing:0.03em;
-    color:var(--ink-faint);
+    color:var(--accent);
   }
   .cs-summary{
-    margin-top:1.6rem;
+    margin-top:1.25rem;
     font-size:1.02rem;
     line-height:1.7;
-    color:var(--ink-soft);
-    max-width:34ch;
+    color:var(--ink);
+    max-width:62ch;
   }
   .cs-role{
-    margin-top:1.75rem;
-    padding-top:1.5rem;
+    margin-top:1.4rem;
+    padding-top:1.15rem;
     border-top:1px solid var(--line);
   }
   .cs-role-label{
@@ -127,14 +132,14 @@
     font-size:0.78rem;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--ink-faint);
+    color:var(--accent);
   }
   .cs-role-value{
     margin-top:0.5rem;
     font-size:0.95rem;
     line-height:1.6;
-    color:var(--ink-soft);
-    max-width:30ch;
+    color:var(--ink);
+    max-width:62ch;
   }
   .cs-view{
     margin-top:1.75rem;
@@ -191,7 +196,7 @@
   }
   .cs-foot-link{
     flex:1;
-    padding:clamp(2.5rem,5vw,3.5rem) clamp(1.25rem,4vw,3rem);
+    padding:clamp(1.1rem,2.2vw,1.6rem) clamp(1.25rem,4vw,3rem);
     text-decoration:none;
     color:var(--forest-ink);
     transition:background-color .15s;
@@ -199,7 +204,6 @@
   .cs-foot-link:hover{background:rgba(255,255,255,0.05);}
   .cs-foot-link.is-next{
     text-align:right;
-    border-left:1px solid rgba(255,255,255,0.14);
   }
   .cs-foot-eyebrow{
     display:block;
@@ -207,7 +211,7 @@
     font-size:0.72rem;
     letter-spacing:0.1em;
     text-transform:uppercase;
-    color:var(--forest-ink-soft);
+    color:var(--accent);
   }
   .cs-foot-title{
     display:block;
@@ -222,15 +226,14 @@
     justify-content:space-between;
     max-width:88rem;
     margin:0 auto;
-    padding:1.5rem clamp(1.25rem,4vw,3rem);
-    border-top:1px solid rgba(255,255,255,0.14);
+    padding:0.9rem clamp(1.25rem,4vw,3rem);
     font-family:"IBM Plex Mono", monospace;
     font-size:0.78rem;
-    color:var(--forest-ink-soft);
+    color:var(--accent);
   }
   .cs-bottom a{
     text-decoration:none;
-    color:var(--forest-ink-soft);
+    color:var(--accent);
     transition:color .15s;
   }
   .cs-bottom a:hover{color:var(--forest-ink);}
@@ -243,7 +246,7 @@
   }
   @media (max-width:640px){
     .cs-foot-nav{flex-direction:column;}
-    .cs-foot-link.is-next{text-align:left; border-left:none; border-top:1px solid rgba(255,255,255,0.14);}
+    .cs-foot-link.is-next{text-align:left;}
   }
 </style>
 
